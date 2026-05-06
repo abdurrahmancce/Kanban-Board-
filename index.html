@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">Kanban<em>Flow</em></span>
+      </div>
+      <p class="header-tagline">Your tasks. Your flow.</p>
+    </div>
+  </header>
+
+  <!-- ========== MAIN BOARD ========== -->
+  <main class="board" id="board">
+
+    <!-- TO DO Column -->
+    <section class="column" data-column="todo" id="col-todo">
+      <div class="column-header">
+        <div class="column-title-row">
+          <span class="column-dot dot-todo"></span>
+          <h2 class="column-title">To Do</h2>
+          <span class="task-count" id="count-todo">0</span>
+        </div>
+        <button class="add-task-btn" data-column="todo" aria-label="Add task to To Do">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Add
+        </button>
+      </div>
+      <div class="task-list" id="list-todo" data-column="todo"></div>
+    </section>
+
+    <!-- IN PROGRESS Column -->
+    <section class="column" data-column="inprogress" id="col-inprogress">
+      <div class="column-header">
+        <div class="column-title-row">
+          <span class="column-dot dot-inprogress"></span>
+          <h2 class="column-title">In Progress</h2>
+          <span class="task-count" id="count-inprogress">0</span>
+        </div>
+        <button class="add-task-btn" data-column="inprogress" aria-label="Add task to In Progress">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Add
+        </button>
+      </div>
+      <div class="task-list" id="list-inprogress" data-column="inprogress"></div>
+    </section>
+
+    <!-- DONE Column -->
+    <section class="column" data-column="done" id="col-done">
+      <div class="column-header">
+        <div class="column-title-row">
+          <span class="column-dot dot-done"></span>
+          <h2 class="column-title">Done</h2>
+          <span class="task-count" id="count-done">0</span>
+        </div>
+        <button class="add-task-btn" data-column="done" aria-label="Add task to Done">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Add
+        </button>
+      </div>
+      <div class="task-list" id="list-done" data-column="done"></div>
+    </section>
+
+  </main>
+
+  <!-- ========== ADD/EDIT MODAL ========== -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <h3 class="modal-title" id="modal-title">New Task</h3>
+      <textarea
+        class="modal-textarea"
+        id="modal-input"
+        placeholder="What needs to be done?"
+        rows="3"
+        maxlength="280"
+      ></textarea>
+      <div class="modal-char-count"><span id="char-count">0</span>/280</div>
+      <div class="modal-actions">
+        <button class="btn btn-cancel" id="modal-cancel">Cancel</button>
+        <button class="btn btn-save" id="modal-save">Save Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DELETE CONFIRM TOAST ========== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Drag ghost placeholder (injected by JS) -->
+  <div class="drag-placeholder" id="drag-placeholder"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
