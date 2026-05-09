@@ -13,7 +13,7 @@ Manage tasks visually with smooth drag-and-drop interactions across **To Do**, *
 
 ## 📸 Preview
 
-![KanbanFlow Preview](https://via.placeholder.com/1200x650.png?text=KanbanFlow+Preview)
+<img width="1920" height="1402" alt="image" src="https://github.com/user-attachments/assets/773aed4c-622b-4520-8772-da40aa2950e7" />
 
 ---
 
